@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dynamic_Carrying_Capacity_Patch", "Dynamic_Carrying_Capacity_Patch\Dynamic_Carrying_Capacity_Patch.csproj", "{3447EA9F-78D8-4A55-B35A-B0C01FEDB502}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3447EA9F-78D8-4A55-B35A-B0C01FEDB502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3447EA9F-78D8-4A55-B35A-B0C01FEDB502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3447EA9F-78D8-4A55-B35A-B0C01FEDB502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3447EA9F-78D8-4A55-B35A-B0C01FEDB502}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3ba51974-c50c-47a4-8109-ff26b41e290c}
+	EndGlobalSection
+EndGlobal

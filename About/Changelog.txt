@@ -1,0 +1,4 @@
+# Changelog for DynamicCarryingCapacity
+
+1.4.0 - First publish
+
