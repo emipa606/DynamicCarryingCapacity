@@ -1,5 +1,8 @@
 # Changelog for DynamicCarryingCapacity
 
+1.4.2 - Probably fixes the issues with Vanilla Vehicles Expanded
+
+
 1.4.1 - Steams was down during the first publish
 
 

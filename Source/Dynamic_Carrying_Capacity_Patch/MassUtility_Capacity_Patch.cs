@@ -11,6 +11,12 @@ public static class MassUtility_Capacity_Patch
 {
     public static bool Prefix(Pawn p, ref float __result, ref StringBuilder explanation)
     {
+        if (Dynamic_Carrying_Capacity.CheckVehicles && p.def.thingClass.FullName?.Contains("Vehicles") == true)
+        {
+            Log.Message($"Ignoring {p}, class {p.def.thingClass.FullName}");
+            return true;
+        }
+
         if (!MassUtility.CanEverCarryAnything(p))
         {
             __result = 0f;
