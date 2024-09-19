@@ -1,4 +1,8 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using HarmonyLib;
 using RimWorld;
@@ -9,33 +13,33 @@ namespace Dynamic_Carrying_Capacity;
 [HarmonyPatch(typeof(MassUtility), nameof(MassUtility.Capacity))]
 public static class MassUtility_Capacity_Patch
 {
-    public static bool Prefix(Pawn p, ref float __result, ref StringBuilder explanation)
+    public static MethodInfo GetPawnBodySizeInfo = AccessTools.Method(typeof(Pawn), "get_BodySize");
+    public static MethodInfo CalculateDynamicCapacityInfo = AccessTools.Method(typeof(MassUtility_Capacity_Patch), nameof(CalculateDynamicCapacity));
+
+    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
-        if (Dynamic_Carrying_Capacity.CheckVehicles && p.def.thingClass.FullName?.Contains("Vehicles") == true)
+        int instructionRemovalCounter = 0;
+        foreach (CodeInstruction instruction in instructions)
         {
-            Log.Message($"Ignoring {p}, class {p.def.thingClass.FullName}");
-            return true;
-        }
-
-        if (!MassUtility.CanEverCarryAnything(p))
-        {
-            __result = 0f;
-            return false;
-        }
-
-        var num = (float)Math.Round(
-            5.0 * (Math.Sqrt(p.GetStatValue(StatDefOf.CarryingCapacity)) * (1.0 + Math.Log10(p.BodySize))), 2);
-        if (explanation != null)
-        {
-            if (explanation.Length > 0)
+            if (instructionRemovalCounter > 0)
             {
-                explanation.AppendLine();
+                instructionRemovalCounter--;
+                continue;
             }
-
-            explanation.Append($"  - {p.LabelShortCap}: {num.ToStringMassOffset()}");
+            if (instruction.opcode == OpCodes.Callvirt && instruction.operand == GetPawnBodySizeInfo)
+            {
+                instruction.operand = CalculateDynamicCapacityInfo;
+                instructionRemovalCounter = 2;
+            }
+            yield return instruction;
         }
+    }
 
-        __result = num;
-        return false;
+    public static float CalculateDynamicCapacity(Pawn p)
+    {
+        return (float)Math.Round(
+            5.0 
+            * (Math.Sqrt(p.GetStatValue(StatDefOf.CarryingCapacity)) 
+            * (1.0 + Math.Log10(p.BodySize))), 2);
     }
 }

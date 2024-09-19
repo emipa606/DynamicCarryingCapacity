@@ -12,7 +12,5 @@ public static class Dynamic_Carrying_Capacity
     static Dynamic_Carrying_Capacity()
     {
         new Harmony("yemg.rimworld").PatchAll(Assembly.GetExecutingAssembly());
-
-        CheckVehicles = ModLister.GetActiveModWithIdentifier("SmashPhil.VehicleFramework") != null;
     }
 }
