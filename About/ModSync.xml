@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>3b8fcdc8-3a53-41f6-a130-499c793d296f</ID>
   <ModName>Dynamic Carrying Capacity (Continued)</ModName>
-  <Version>1.5.0</Version>
+  <Version>1.5.1</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>emipa606</Owner>
@@ -12,3 +12,4 @@
     <Branch>master</Branch>
   </Host>
 </ModSyncNinjaData>
+

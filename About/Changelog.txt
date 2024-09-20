@@ -1,5 +1,8 @@
 # Changelog for DynamicCarryingCapacity
 
+1.5.1 - Carry capacity is now a transpiler to increase compatibility, thanks to Inglix!
+
+
 1.5.0 - Mod updated for 1.5 and passed autotests
 
 
