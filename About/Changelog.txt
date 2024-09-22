@@ -1,5 +1,8 @@
 # Changelog for DynamicCarryingCapacity
 
+1.5.2 - Fix for the bug introduced in the last patch
+
+
 1.5.1 - Carry capacity is now a transpiler to increase compatibility, thanks to Inglix!
 
 
