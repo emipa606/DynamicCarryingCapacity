@@ -1,0 +1,6 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="Dynamic_Carrying_Capacity_Patch/Dynamic_Carrying_Capacity_Patch.csproj" />
+</Solution>

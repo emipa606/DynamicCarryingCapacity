@@ -11,10 +11,10 @@ namespace Dynamic_Carrying_Capacity;
 [HarmonyPatch(typeof(MassUtility), nameof(MassUtility.Capacity))]
 public static class MassUtility_Capacity_Patch
 {
-    public static readonly MethodInfo GetPawnBodySizeInfo =
+    private static readonly MethodInfo GetPawnBodySizeInfo =
         AccessTools.PropertyGetter(typeof(Pawn), nameof(Pawn.BodySize));
 
-    public static readonly MethodInfo CalculateDynamicCapacityInfo =
+    private static readonly MethodInfo CalculateDynamicCapacityInfo =
         AccessTools.Method(typeof(MassUtility_Capacity_Patch), nameof(CalculateDynamicCapacity));
 
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
